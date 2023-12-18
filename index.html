@@ -59,41 +59,25 @@
             width: 100%;
         }
 
-        .video-container iframe, .video-container .overlay {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
         }
-
-        .video-container .overlay {
-            background: transparent;
-            z-index: 2;
-        }
     </style>
 </head>
 <body>
     <div class="video-container">
-        <iframe id="video" src="https://www.youtube.com/embed/j9V78UbdzWI?start=30&autoplay=0&controls=0&showinfo=0&loop=1&playlist=j9V78UbdzWI" 
+        <iframe id="video" src="https://www.youtube.com/embed/j9V78UbdzWI?start=30&autoplay=1&controls=0&showinfo=0&loop=1&playlist=j9V78UbdzWI" 
                 frameborder="0" 
                 allow="autoplay; fullscreen" 
                 allowfullscreen>
         </iframe>
-        <div id="overlay" class="overlay" onclick="handleClick()"></div>
     </div>
 
     <script>
-        var clicked = false;
-
-        function handleClick() {
-            if (!clicked) {
-                document.getElementById('video').src += "&autoplay=1";
-                document.getElementById('overlay').style.display = 'none';
-                clicked = true;
-            }
-        }
-
         window.addEventListener('blur', function(){
             if(document.activeElement === document.getElementById('video')) {
                 window.open('https://rishiraj.github.io/', '_blank');
